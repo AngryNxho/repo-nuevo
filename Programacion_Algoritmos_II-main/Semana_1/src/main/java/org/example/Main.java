@@ -31,6 +31,5 @@ public class Main {
             }
             System.out.println("La clave no cumple con los requisitos");
         } while (true);
-        leer.close();
     }
 }

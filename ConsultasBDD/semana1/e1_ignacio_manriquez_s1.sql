@@ -10,6 +10,3 @@ FROM empleado
 ORDER BY appaterno_emp ASC;
 
 --CASO 2
-
-
-SELECT * FROM propiedad_arrendada;

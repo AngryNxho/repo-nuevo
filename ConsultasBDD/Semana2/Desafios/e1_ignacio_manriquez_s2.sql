@@ -10,10 +10,10 @@ SELECT EXTRACT(YEAR FROM SYSDATE)"AÑO TRIBUTARIO",
     END "MESES TRABAJADOS EN EL AÑO",
     ((EXTRACT(YEAR FROM SYSDATE) - 1) - EXTRACT(YEAR FROM fecha_contrato))"AÑOS TRABAJADOS",
     sueldo_base "SUELDO BASE MENSUAL",
-    sueldo_base * 12 "SUELDO BASE MENSUAL",
-    CASE WHEN (EXTRACT(YEAR FROM SYSDATE)) - EXTRACT(YEAR FROM fecha_contrato) >= 12
-    THEN ((sueldo_base * 0.012) * 12)
-    ELSE (sueldo_base * 1.05)
+    sueldo_base * 12 "SUELDO BASE ANUAL",
+    CASE 
+    WHEN (EXTRACT(YEAR FROM SYSDATE)) - EXTRACT(YEAR FROM fecha_contrato) > 1
+    THEN TRUNC(sueldo_base * 12 * (EXTRACT(YEAR FROM SYSDATE) -1 - EXTRACT(YEAR FROM fecha_contrato)) / 100)
     END AS "BONOS POR AÑO ACTUAL"
 FROM empleado
 ORDER BY numrun_emp ASC;

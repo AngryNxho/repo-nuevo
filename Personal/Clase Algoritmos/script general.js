@@ -124,36 +124,36 @@
 // // Borrar O(1)
 // pila.pop();
 
-class Queue {
-    length = 0;
-    #first = 0;
+// class Queue {
+//     length = 0;
+//     #first = 0;
 
-    enqueue(item) {
-        this[this.length] = item;
-        this.length++;
-        return this.length;
-    }
+//     enqueue(item) {
+//         this[this.length] = item;
+//         this.length++;
+//         return this.length;
+//     }
 
-    dequeue() {
-        let size = this.length - this.#first;
-        if (size === 0) {return undefined}
-        const item = this[this.#first];
-        delete this[this.#first];
-        this.#first++;
-        return item;
-    }
+//     dequeue() {
+//         let size = this.length - this.#first;
+//         if (size === 0) {return undefined}
+//         const item = this[this.#first];
+//         delete this[this.#first];
+//         this.#first++;
+//         return item;
+//     }
 
-    front() {
-        let size = this.length - this.#first;
-        if (size === 0) {return undefined}
-        return this[this.#first];
-    }
+//     front() {
+//         let size = this.length - this.#first;
+//         if (size === 0) {return undefined}
+//         return this[this.#first];
+//     }
 
     
-}
+// }
 
-let cola = new Queue();
-console.log(cola.length);
+// let cola = new Queue();
+// console.log(cola.length);
 
 // cola.enqueue("primero");
 // console.log(cola.front());
@@ -178,3 +178,104 @@ console.log(cola.length);
 // console.log(cola.shift());
 // console.log(cola.shift());
 // console.log(cola.shift());
+
+// LISTA ENLAZADA
+
+// class Node {
+//     constructor(value, next = null) {
+//         this.value = value;
+//         this.next = next;
+//     }
+// }
+
+// const listaEnlazada = new Node(1, 
+//     new Node(2,
+//         new Node(3, 
+//             new Node(4)
+//         )
+//     )
+// );
+
+// console.log(JSON.stringify(listaEnlazada, null , 2));
+
+// Acceder O(1) O(n)
+
+// class LinkedList {
+//     length = 0;
+//     head = null;
+
+//     add(value) {
+//         let node = new Node(value);
+//         if (this.head == null) {
+//             this.head = node
+//         } else {
+//             let curr = this.head;
+//             while (curr.next) {
+//                 curr = curr.next;
+//             }
+//             curr.next = node;
+//         }
+//         this.length++;
+//     }
+// }
+
+// const listaEnlazadaFormal = new LinkedList();
+// listaEnlazadaFormal.add(1);
+// listaEnlazadaFormal.add(2);
+// listaEnlazadaFormal.add(3);
+// listaEnlazadaFormal.add(4);
+
+// console.log(JSON.stringify(listaEnlazadaFormal, null, 2));
+
+// class Node {
+    // constructor(value, children = []) {
+        // this.value = value;
+        // this.children = children;
+    // } 
+// }
+// 
+// let raiz = new Node(1, [
+    // new Node(2, [
+        // new Node(5),
+        // new Node(6),
+        // new Node(7)
+    // ]),
+    // new Node(3),
+    // new Node(4, [
+        // new Node(8)
+    // ]),
+// ]);
+
+// console.log(JSON.stringify(raiz, null, 2));
+// function preOrden(root) {
+    // if (!root) return null;
+    // console.log(root.value);
+    // for (let child of root.children) {
+        // preOrden(child);
+    // }
+// }
+// 
+// function postOrden(root) {
+    // if (!root) return null;
+    // for (let child of root.children) {
+        // postOrden(child);
+    // }
+    // console.log(root.value);
+// }
+
+
+// preOrden(raiz);
+// postOrden(raiz);
+// function bfs(root) {
+//     if (!root) return null;
+//     let queue = [root];
+//     while (queue.length) {
+//         let node = queue.shift();
+//         console.log(node.value);
+//         for (let child of node.children) {
+//             queue.push(child);
+//         }
+//     }
+// }
+
+// bfs(raiz);

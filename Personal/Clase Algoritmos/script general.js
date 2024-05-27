@@ -106,20 +106,75 @@
 // console.log(pila.pop());
 // console.log(pila.pop());
 
-let pila = ["primero", "segundo", "tercero"]; // n
+// let pila = ["primero", "segundo", "tercero"]; // n
 
 // Acceder O(n)
 
 //Buscar O(n)
-let busco = "primero";
-let ultimo = pila.pop();
-while (ultimo && busco !== ultimo) {
-    ultimo = pila.pop();
+// let busco = "primero";
+// let ultimo = pila.pop();
+// while (ultimo && busco !== ultimo) {
+//     ultimo = pila.pop();
+// }
+// console.log(ultimo);
+
+// // Insertar O(1)
+// pila.push("cuarto");
+
+// // Borrar O(1)
+// pila.pop();
+
+class Queue {
+    length = 0;
+    #first = 0;
+
+    enqueue(item) {
+        this[this.length] = item;
+        this.length++;
+        return this.length;
+    }
+
+    dequeue() {
+        let size = this.length - this.#first;
+        if (size === 0) {return undefined}
+        const item = this[this.#first];
+        delete this[this.#first];
+        this.#first++;
+        return item;
+    }
+
+    front() {
+        let size = this.length - this.#first;
+        if (size === 0) {return undefined}
+        return this[this.#first];
+    }
+
+    
 }
-console.log(ultimo);
 
-// Insertar O(1)
-pila.push("cuarto");
+let cola = new Queue();
+console.log(cola.length);
 
-// Borrar O(1)
-pila.pop();
+// cola.enqueue("primero");
+// console.log(cola.front());
+// cola.enqueue("segundo");
+// console.log(cola.front());
+// cola.enqueue("tercero");
+// console.log(cola.front());
+
+// console.log(cola.dequeue());
+// console.log(cola.dequeue());
+// console.log(cola.dequeue());
+
+// //Con js
+
+// cola.enqueue("primero");
+// console.log(cola[0]);
+// cola.enqueue("segundo");
+// console.log(cola[0]);
+// cola.enqueue("tercero");
+// console.log(cola[0]);
+
+// console.log(cola.shift());
+// console.log(cola.shift());
+// console.log(cola.shift());

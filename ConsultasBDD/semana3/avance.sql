@@ -1,0 +1,13 @@
+
+ALTER SESSION SET NLS_DATE_FORMAT='DD-mm-yy';
+
+SELECT TO_CHAR(run_emp, '09G999G999') "RUN EMPLEADO"
+FROM empleado;
+
+
+SELECT TO_CHAR(fecha_ini_prestamo, 'MM-YYYY') "MES PRESTAMOS LIBROS"
+FROM prestamo
+WHERE EXTRACT(YEAR FROM fecha_ini_prestamo) = EXTRACT(YEAR FROM ADD_MONTHS(SYSDATE, -12))
+ORDER BY fecha_ini_prestamo;
+
+

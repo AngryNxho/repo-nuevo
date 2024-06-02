@@ -1,0 +1,42 @@
+/* ComponenteTarjetaArticulo.css */
+.tarjeta-articulo {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    width: 300px;
+    background-color: white;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .contenido {
+    padding: 15px;
+  }
+  
+  .contador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  

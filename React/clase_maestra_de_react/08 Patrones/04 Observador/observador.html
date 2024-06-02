@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Observable {
+            constructor() {
+                this.observadores = [];
+            }
+
+            suscribir(func) {
+                this.observadores.push(func);
+            }
+
+            desuscribir(func) {
+                this.observadores = this.observadores.filter(observador => observador !== func);
+            }
+
+            notificar(datos) {
+                this.observadores.forEach(observador => observador(datos));
+            }
+        }
+        const observable = new Observable();
+
+        function App() {
+            const click = () => observable.notificar("Click!");
+            return <button onClick={click} >Alertar!</button>
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+
+        function altertar(datos) {
+            alert(`${Date.now()} ${datos}`);
+            observable.desuscribir(altertar);
+            observable.suscribir(imprimir);
+        }
+
+        function imprimir(datos) {
+            console.log(`${Date.now()} ${datos}`);
+            observable.desuscribir(imprimir);
+        }
+
+        observable.suscribir(altertar);
+
+    </script>
+</body>
+
+</html>

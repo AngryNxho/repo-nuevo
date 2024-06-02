@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // 1
+        // function Bienvenido(props) {
+        //     return <h1>Bienvenido {props.nombre}</h1>;
+        // }
+        // const app = (
+        //     <div>
+        //         <Bienvenido nombre="Pedro"/>
+        //         <Bienvenido nombre="Luis"/>
+        //     </div>
+        // );
+        // ReactDOM.render(app, document.getElementById('root'));
+        // 2
+        // Componentes deben ser funciones puras
+        function Bienvenido(props) {
+            return <h1>Bienvenido {props.nombre}</h1>;
+        }
+        function Login(props) {
+            return (
+                <form action="/action.php" method="POST">
+                    <label for="name">Nombre:</label>
+                    <input id="name" name="name" value={props.nombre} />
+                    <br />
+                    <label>
+                        Email
+                        <input name="email" type="email" required placeholder="miemail@ejemplo.com" />
+                    </label>
+                    <br />
+                    <button>Iniciar Sesión</button>
+                </form>
+            );
+        }
+        const nombre = "Pedro";
+        const app = (
+            <div>
+                <Bienvenido nombre={nombre} />
+                <Login nombre={nombre} />
+            </div>
+        );
+        ReactDOM.render(app, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

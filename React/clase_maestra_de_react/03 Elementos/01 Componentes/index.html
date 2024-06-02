@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // 1
+        // Es un elemento de HTML personalizado
+        // El nombre debe empezar con mayúsculas
+        // function Bienvenido() {
+        //     return <h1>Bienvenido</h1>;
+        // }
+        // const componente = <Bienvenido />;
+        // ReactDOM.render(componente, document.getElementById('root'));
+        // 2
+        function Bienvenido() {
+            return <h1>Bienvenido</h1>;
+        }
+        const app = (
+            <div>
+                <Bienvenido />
+                <Bienvenido />
+            </div>
+        );
+        ReactDOM.render(app, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

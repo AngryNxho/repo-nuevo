@@ -1,0 +1,56 @@
+/* estilos.css */
+.contenedor-tarjetas {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .presentacion-tarjetas {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tarjeta {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Añadimos un fondo y opacidad */
+  body {
+    background-image: url('fondo.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    opacity: 0.9;
+  }
+  

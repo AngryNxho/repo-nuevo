@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const baseUrl = "https://raw.githubusercontent.com/xrochoa/photo-gallery-resources/master/";
+        const fetchUrl = baseUrl + "json/photos.json";
+
+        class ContenedorDeParques extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    parques: []
+                };
+            }
+
+            componentDidMount() {
+                fetch(fetchUrl)
+                    .then(res => res.json())
+                    .then(parques => this.setState({ parques }));
+            }
+
+            render() {
+                return <Parques parques={this.state.parques} />;
+            }
+        }
+
+        function Parques({ parques }) {
+            const style = { width: '100px' };
+            return parques.map(parque => {
+                const url = `${baseUrl}/highres/${parque.id}/1.jpg`;
+                return <img style={style} src={url} key={parque.id} alt="Parque" />
+            });
+        }
+
+        ReactDOM.render(<ContenedorDeParques />, document.getElementById('root'));
+    </script>
+
+</body>
+
+</html>

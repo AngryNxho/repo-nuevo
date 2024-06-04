@@ -8,39 +8,13 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-
-        function Bienvenido(props) {
-            return <h1>Bienvenido {props.nombre}!</h1>
+        
+        function Series() {
+            const lista = ['a', 'b', 'c']
+            return <ul>{lista.map(serie => <li>{serie}</li>)}</ul>
         }
 
-        function Login({nombre}) {
-            return (
-                <form action="/action.php" method="POST">
-                    <label for="name">Nombre:</label>
-                    <input id="name" name="name" value={nombre} />
-                    <br />
-                    <label>
-                        Email
-                        <input name="email" type="email" required placeholder="miemail@ejemplo.com" />
-                    </label>
-                    <br />
-                    <button>Iniciar Sesión</button>
-                </form>
-            );
-        }
-
-
-        function App() {
-            const nombre = 'Jose';
-            return (
-                <div>
-                    <Bienvenido nombre={nombre}/>
-                    <Login nombre={nombre}/>
-                </div>
-            );
-        }
-        const h1 = <h1>Bienvenido!</h1>;
-        ReactDOM.render(<App />, document.getElementById('root'));
+        ReactDOM.render(<Series />, document.getElementById('root'));
     </script>
 </body>
 </html>

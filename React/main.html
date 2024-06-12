@@ -1,20 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Líneas de Lana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .App {
+            text-align: center;
+        }
+        .counter {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
-    <script type="text/babel">
-        
-        function Series() {
-            const lista = ['a', 'b', 'c']
-            return <ul>{lista.map(serie => <li>{serie}</li>)}</ul>
-        }
 
-        ReactDOM.render(<Series />, document.getElementById('root'));
+    <!-- React and ReactDOM CDN -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel CDN for JSX transpilation -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const Counter = () => {
+            const [count, setCount] = useState(0);
+
+            const increment = () => setCount(count + 1);
+            const decrement = () => setCount(count - 1);
+
+            return (
+                <div className="counter">
+                    <h1>Contador de Líneas de Lana</h1>
+                    <p>{count}</p>
+                    <button onClick={increment}>Incrementar</button>
+                    <button onClick={decrement}>Decrementar</button>
+                </div>
+            );
+        };
+
+        const App = () => {
+            return (
+                <div className="App">
+                    <Counter />
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 </body>
 </html>

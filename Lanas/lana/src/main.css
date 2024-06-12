@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    height: 75px;
+    width: 120px;
+}

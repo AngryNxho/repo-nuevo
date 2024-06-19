@@ -1,8 +1,9 @@
-.content {
+.grid-container {
     display: grid;
+    margin: 100px;
 }
 
-.content {
-    display: flex;
-    flex-direction: column|;
+.grid-content {
+    gap: 50px;
+    margin: 50px;
 }

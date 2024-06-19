@@ -45,7 +45,7 @@ function App() {
         <div>
             <input type="text" placeholder='Type task' onChange={handleChange}/>
             <button onClick={handleClick}>Add</button>
-            <Task task={tasks}/>
+            <Task task={tasks} />
         </div>
     );
 }

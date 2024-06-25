@@ -1,3 +1,5 @@
+-- CASO 1
+
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD/MM/YYYY';
 
 DELETE FROM bonif_arriendos_mensual
@@ -38,7 +40,6 @@ WHERE ANNO_MES = TO_CHAR(SYSDATE, 'YYYYMM');
 
 -- CASO 2
 
--- Consulta para obtener datos de los profesionales
 SELECT 
     p.numrun_prof AS "RUN PROFESIONAL",
     TRIM(p.appaterno || ' ' || p.apmaterno || ' ' || p.nombre) AS "NOMBRE PROFESIONAL",

@@ -10,3 +10,15 @@ FROM empleado
 ORDER BY appaterno_emp ASC;
 
 --CASO 2
+
+
+SELECT nro_propiedad "NUMERO PROPIEDAD", 
+TO_CHAR(fecha_entrega_propiedad, 'DD/MM/YYYY') "FECHA ENTREGA_PROPIEDAD",
+direccion_propiedad DIRECCION,
+superficie SUPERFICIE,
+nro_dormitorios "CANTIDAD DE DORMITORIOS",
+nro_banos "CANTIDAD DE BAÑOS",
+valor_arriendo "VALOR DEL ARRIENDO"
+FROM propiedad 
+WHERE EXTRACT(YEAR FROM fecha_entrega_propiedad) = 2024
+ORDER BY fecha_entrega_propiedad;

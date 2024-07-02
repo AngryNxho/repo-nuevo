@@ -1,55 +1,42 @@
 import { useState } from 'react';
-import box from './box.css'
+import './box.css';
 
 function Box() {
     return (
-        <div className = 'container'>
-                <div className="two-buttons first">
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
+        <div className='container'>
+            <div className="two-buttons first">
+                <div className="square">
+                    <MyButton />
                 </div>
-
-                <div className="two-buttons second">
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
+                <div className="square">
+                    <MyButton />
                 </div>
-
-                <div className="two-buttons third">
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                </div>
-
-                <div className="two-buttons fourth">
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                    <div className="square">D</div>
-                    <div className="square">l</div>
-                </div>
+                <div className="square">D</div>
+            </div>
         </div>
-    )
+    );
+}
+
+function MyButton() {
+    const [count, setCount] = useState(0);
+
+    function handleClick() {
+        setCount(count + 1);
+    }
+
+    return (
+        <button onClick={handleClick}>
+            {count}
+        </button>
+    );
 }
 
 function App() {
     return (
         <div>
-            <h1>Hola Mundo</h1>
             <Box />
         </div>
-    )
+    );
 }
 
 export default App;

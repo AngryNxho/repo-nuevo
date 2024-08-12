@@ -58,10 +58,8 @@ DECLARE
     v_esp_id NUMBER := 1;                
     v_cantidad NUMBER;                   
 BEGIN 
-    -- Llamar a la funciÃ³n y almacenar el resultado en v_cantidad
     v_cantidad := periodo_especialidad(v_esp_id, v_periodo);
     
-    -- Imprimir el resultado
     DBMS_OUTPUT.PUT_LINE('Cantidad de atenciones para la especialidad ' || v_esp_id || ' en el periodo ' || v_periodo || ': ' || v_cantidad);
 END;
 /

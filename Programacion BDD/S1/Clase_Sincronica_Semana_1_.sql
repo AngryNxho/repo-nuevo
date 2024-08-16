@@ -1,7 +1,7 @@
 
 -- creacion de funcion para obtener la especialidad del doctor.
 
-create or r eplace function fn_nombre_especialidad(id_esp IN NUMBER) return varchar2 is
+create or replace function fn_nombre_especialidad(id_esp IN NUMBER) return varchar2 is
 
 v_nombre_especialidad especialidad.nombre%TYPE;
 

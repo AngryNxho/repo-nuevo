@@ -1,5 +1,3 @@
-SELECT * FROM atencion;
---Funcion a
 CREATE OR REPLACE FUNCTION fn_cantidad_atenciones(p_rut_medico IN VARCHAR2, p_periodo IN VARCHAR2)
 RETURN NUMBER IS
 

@@ -46,3 +46,38 @@ BEGIN
     v_dato := fn_promedio_sueldos(100);
     DBMS_OUTPUT.PUT_LINE('resultado: ' || v_dato);
 END;
+
+--Funcion 3
+
+CREATE OR REPLACE FUNCTION fn_periodo_atenciones(p_periodo IN VARCHAR2) 
+RETURN NUMBER IS 
+
+v_costo_total NUMBER;
+BEGIN
+    SELECT SUM(costo)
+    INTO v_costo_total
+    FROM atencion
+    WHERE fecha_atencion >= TO_DATE('01-' || p_periodo, 'DD-MM-YYYY')
+    AND fecha_atencion < ADD_MONTHS(TO_DATE('01-' || p_periodo, 'DD-MM-YYYY'), 1);
+    RETURN v_costo_total;
+END;
+
+SET SERVEROUTPUT ON;
+DECLARE
+v_dato NUMBER;
+BEGIN
+    v_dato := fn_periodo_atenciones('06-2023');
+
+    IF(v_dato) IS NULL THEN
+        DBMS_OUTPUT.PUT_LINE('Resultado: Sin datos');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Resultado: ' || v_dato);
+        
+    END IF;
+END;
+
+
+
+SELECT * FROM atencion;
+
+--AND fecha_atencion >= TO_DATE(p_periodo || '-01', 'MM-YYYY-DD')

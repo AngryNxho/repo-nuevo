@@ -1,3 +1,4 @@
+--funcion 1
 CREATE OR REPLACE FUNCTION fn_cantidad_atenciones(p_rut_medico IN VARCHAR2, p_periodo IN VARCHAR2)
 RETURN NUMBER IS
 
@@ -78,6 +79,4 @@ END;
 
 
 
-SELECT * FROM atencion;
 
---AND fecha_atencion >= TO_DATE(p_periodo || '-01', 'MM-YYYY-DD')
